@@ -16,8 +16,8 @@ skills:
   - Jenkins
   - Meteor
   - MongoDB
-  - NodeJS
-  - PhantomJS
+  - Node
+  - Phantom
   - Rails
   - React
   - Ruby
