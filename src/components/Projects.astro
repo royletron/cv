@@ -4,7 +4,9 @@ import Block from "./Block.astro";
 import SectionHeader from "./SectionHeader.astro";
 
 const collection = await getCollection("project");
-const allProjects = collection.filter((p) => p.data.published);
+const allProjects = collection
+  .filter((p) => p.data.published)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <SectionHeader title="Other Projects" />

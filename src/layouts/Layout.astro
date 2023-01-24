@@ -21,7 +21,10 @@ const { title } = Astro.props;
     </div>
     <footer class="bg-base-300 mt-28">
       <section class="container mx-auto px-3 py-6 text-center">
-        Darren Royle
+        Darren Royle ✨ <a
+          href={`https://github.com/royletron/cv/commit/${process.env.SHORT_SHA}`}
+          ><b>{process.env.SHORT_SHA || "?"}</b></a
+        >
       </section>
     </footer>
   </body>

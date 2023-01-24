@@ -137,6 +137,20 @@ declare module 'astro:content' {
   collection: "project",
   data: InferEntrySchema<"project">
 },
+"2017-04-01-retrospectr.md": {
+  id: "2017-04-01-retrospectr.md",
+  slug: "2017-04-01-retrospectr",
+  body: string,
+  collection: "project",
+  data: InferEntrySchema<"project">
+},
+"2021-03-01-sparkle.md": {
+  id: "2021-03-01-sparkle.md",
+  slug: "2021-03-01-sparkle",
+  body: string,
+  collection: "project",
+  data: InferEntrySchema<"project">
+},
 },
 
 	};
