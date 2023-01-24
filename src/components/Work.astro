@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import Block from "./Block.astro";
+import SectionHeader from "./SectionHeader.astro";
+import Tags from "./Tags";
+
+const collection = await getCollection("employment");
+const allWork = collection
+  .filter((a) => a.data.published)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<SectionHeader title="Work History" />
+
+{
+  allWork.map(async (work) => {
+    const { Content } = await work.render();
+    return (
+      <Block
+        title={work.data.title}
+        subtitle={`${work.data.employer} • ${work.data.date.getFullYear()} - ${
+          work.data.to ? work.data.to.getFullYear() : "Current"
+        }`}
+      >
+        <Content />
+        {work.data.skills.length ? (
+          <Tags client:load skills={work.data.skills} />
+        ) : (
+          ""
+        )}
+      </Block>
+    );
+  })
+}

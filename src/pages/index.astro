@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Education from "../components/Education.astro";
+import Work from "../components/Work.astro";
+import Summary from "../components/Summary.astro";
+import Projects from "../components/Projects.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <div class="prose prose-lg text-center min-w-full mb-6">
+    <div>
+      <img
+        class="w-20 h-20 bg-base-300 rounded-full mx-auto mb-0"
+        src="/royle.png"
+      />
+    </div>
+    <h1 class="mt-3">Darren Royle</h1>
+  </div>
+  <Summary />
+  <Work />
+  <Education />
+  <Projects />
+</Layout>

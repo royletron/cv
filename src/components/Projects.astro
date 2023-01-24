@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Block from "./Block.astro";
+import SectionHeader from "./SectionHeader.astro";
+
+const collection = await getCollection("project");
+const allProjects = collection.filter((p) => p.data.published);
+---
+
+<SectionHeader title="Other Projects" />
+
+{
+  allProjects.map(async (project) => {
+    const { Content } = await project.render();
+    return (
+      <Block
+        title={project.data.title}
+        subtitle={`${
+          project.data.description
+        } • ${project.data.date.getFullYear()}`}
+      >
+        <Content />
+      </Block>
+    );
+  })
+}

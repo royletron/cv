@@ -1,0 +1,15 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  children: any;
+}
+
+const { title, subtitle, children } = Astro.props;
+---
+
+<div class="prose max-w-full mb-6">
+  {title && <h2 class="mb-1">{title}</h2>}
+  {subtitle && <h3 class="mt-1">{subtitle}</h3>}
+  <slot />
+</div>

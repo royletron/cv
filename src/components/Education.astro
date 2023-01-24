@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Block from "./Block.astro";
+import SectionHeader from "./SectionHeader.astro";
+
+const collection = await getCollection("education");
+const allEducation = collection.filter((e) => e.data.published);
+---
+
+<SectionHeader title="Education" />
+
+{
+  allEducation.map(async (education) => {
+    const { Content } = await education.render();
+    return (
+      <Block
+        title={education.data.title}
+        subtitle={`${
+          education.data.institution
+        } • ${education.data.from.getFullYear()} - ${education.data.to.getFullYear()}`}
+      >
+        <Content />
+      </Block>
+    );
+  })
+}
