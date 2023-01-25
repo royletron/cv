@@ -6,6 +6,8 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<div class="border-t border-b border-neutral my-8 py-2">
+<div
+  class="border-t border-b print:border-t-0 border-neutral my-8 py-2 print:mb-4"
+>
   <h2 class="text-xl font-thin">{title}</h2>
 </div>
